@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantum Certificate Verification System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <h1>Quantum Certificate Verification</h1>
+        <p>Quantum-Resistant Fake Certificate Detection System</p>
+    </header>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('issue')">Issue Certificate</button>
+        <button class="tab-btn" onclick="showTab('verify')">Verify Certificate</button>
+        <button class="tab-btn" onclick="showTab('view')">View Certificates</button>
+    </div>
+
+    <!-- ISSUE TAB -->
+    <div id="issue-tab" class="tab-content active">
+        <h2>Issue New Certificate</h2>
+
+        <form id="issue-form">
+            <div class="form-group">
+                <label>Certificate ID</label>
+                <input type="text" id="issue-id" required>
+            </div>
+
+            <div class="form-group">
+                <label>Holder Name</label>
+                <input type="text" id="issue-name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Course</label>
+                <input type="text" id="issue-course" required>
+            </div>
+
+            <div class="form-group">
+                <label>Issue Date</label>
+                <input type="date" id="issue-date" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Issue Certificate</button>
+        </form>
+
+        <div id="issue-result" class="result"></div>
+    </div>
+
+    <!-- VERIFY TAB -->
+    <div id="verify-tab" class="tab-content">
+        <h2>Verify Certificate</h2>
+
+        <form id="verify-form">
+            <div class="form-group">
+                <label>Certificate ID</label>
+                <input type="text" id="verify-id" required>
+            </div>
+
+            <div class="form-group">
+                <label>Holder Name</label>
+                <input type="text" id="verify-name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Course</label>
+                <input type="text" id="verify-course" required>
+            </div>
+
+            <div class="form-group">
+                <label>Issue Date</label>
+                <input type="date" id="verify-date" required>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Verify Certificate</button>
+        </form>
+
+        <div id="verify-result" class="result"></div>
+    </div>
+
+    <!-- VIEW TAB -->
+    <div id="view-tab" class="tab-content">
+        <h2>Issued Certificates</h2>
+
+        <button class="btn btn-info" onclick="loadAllCertificates()">
+            Refresh Certificate List
+        </button>
+
+        <div id="certificates-list"></div>
+    </div>
+
+</div>
+
+<!-- JS -->
+<script src="js/app.js"></script>
+</body>
+</html>
